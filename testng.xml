@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/Nour Soft/IdeaProjects/POM">
+        <classes>
+            <class name="T001_register"/>
+            <class name="T002_login"/>
+            <class name="T003_logout"/>
+            <class name="T004_register1"/>
+            <class name="T005_contantUs"/>
+            <class name="T006_testCase"/>
+            <class name="T007_allProducts"/>
+            <class name="T008_search"/>
+            <class name="T009_subscriptionHome"/>
+            <class name="T0010_subscriptionCart"/>
+            <class name="T0011_downloadInvoice"/>
+        </classes>
+    </test>
+</suite>

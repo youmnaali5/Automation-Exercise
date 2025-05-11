@@ -1,0 +1,39 @@
+import com.github.javafaker.Faker;
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+import pages.P001_register;
+
+public class T001_register extends testbase{
+    P001_register register;
+    Faker fake = new Faker();
+    SoftAssert soft = new SoftAssert();
+    @Test
+    public void test1(){
+        register= new P001_register(driver);
+        soft.assertEquals(driver.getCurrentUrl(),"https://automationexercise.com/");
+        register.clickOnSignUp();
+        soft.assertEquals(register.getAssertNewUserLetter(),"New User Signup!","This content isn't correct");
+        String name = fake.name().fullName();
+        String email = fake.internet().safeEmailAddress();
+        register.fillData(name, email);
+//        register.fillData("youmna khalifa","youmnakhalifa630@gmail.com");
+        register.clickOnSignUpButton();
+        soft.assertEquals(register.getAccountInformation(),"ENTER ACCOUNT INFORMATION");
+        register.chooseRandom();
+        register.password();
+        register.selectRandomOption();
+        register.clickOnCheckbox();
+        soft.assertEquals(register.getAddressInformation(),"ADDRESS INFORMATION");
+        register.fillOtherData();
+        register.clickOnCreateAccount();
+        soft.assertEquals(register.getMessageCreate(),"ACCOUNT CREATED!");
+        register.clickOncontinue();
+        soft.assertEquals(register.getLoggedAs(),"Logged in as ");
+//        register.clickOnDeleteAccount();
+//        soft.assertEquals(register.getMessageDelete(),"ACCOUNT DELETED!");
+//        register.clickOnContinueDelete();
+        soft.assertAll();
+    }
+//        String name = fake.name().fullName();
+//        String email = fake.internet().safeEmailAddress();
+}
